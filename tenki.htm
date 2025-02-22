@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>天気情報サンプル</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
+    .weather {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 5px;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>現在の天気情報</h1>
+  <div class="weather">
+    <p id="location">場所: </p>
+    <p id="temperature">気温: </p>
+    <p id="description">天気: </p>
+  </div>
+
+  <script>
+    // OpenWeatherMapのAPIキーを設定してください
+    const apiKey = 'YOUR_API_KEY';
+    // 天気情報を取得したい都市名（例: Tokyo）
+    const city = 'Tokyo';
+    // APIエンドポイントのURL（単位は摂氏、言語は日本語）
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ja`;
+
+    // APIから天気情報を取得してHTMLに反映する関数
+    async function fetchWeather() {
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('ネットワークエラーまたは無効なレスポンスです');
+        }
+        const data = await response.json();
+
+        // HTMLの各要素に取得した情報を表示
+        document.getElementById('location').textContent = `場所: ${data.name}`;
+        document.getElementById('temperature').textContent = `気温: ${data.main.temp} °C`;
+        document.getElementById('description').textContent = `天気: ${data.weather[0].description}`;
+      } catch (error) {
+        console.error('天気情報の取得に失敗しました:', error);
+        document.getElementById('location').textContent = '天気情報の取得に失敗しました';
+      }
+    }
+
+    // ページ読み込み時に天気情報を取得
+    window.addEventListener('load', fetchWeather);
+  </script>
+</body>
+</html>
