@@ -42,6 +42,8 @@
       margin-bottom: 2em;
     }
     .filter-bar select, .filter-bar input[type="text"] {
+      flex: 1;
+      min-width: 140px;
       padding: 0.5em;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -148,8 +150,12 @@
       .container {
         padding: 1em;
       }
+      .blog-link-box {
+        width: 100%;
+      }
       .post-form input, .post-form textarea, .post-form button {
         font-size: 0.9em;
+        padding: 0.6em;
       }
     }
   </style>
@@ -176,7 +182,7 @@
 
     <div class="blog-link-section">
       <a href="blog.html" class="blog-link-box">
-        <img src="images/blog-banner.jpg" alt="ブログ一覧へ">
+        <img src="images/blog-banner.jpg" alt="ブログへ">
         <h2>最新ブログを見る</h2>
         <p>火災保険や営業、ライフスタイル情報を随時更新中！</p>
       </a>
@@ -200,7 +206,7 @@
   </footer>
 
   <script>
-    const password = "n19900521";
+    const password = "creampass";
     const blogList = document.getElementById("blog-list");
     let isAdmin = false;
 
