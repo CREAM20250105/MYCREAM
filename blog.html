@@ -40,11 +40,10 @@
       flex-wrap: wrap;
       gap: 1em;
       margin-bottom: 2em;
-      justify-content: space-between;
     }
     .filter-bar select, .filter-bar input[type="text"] {
-      flex: 1 1 30%;
-      min-width: 150px;
+      flex: 1;
+      min-width: 140px;
       padding: 0.5em;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -68,7 +67,6 @@
     .blog-item h3 {
       margin-top: 0;
       color: #111;
-      font-size: 1.25em;
     }
     .blog-item .meta {
       font-size: 0.9em;
@@ -117,34 +115,26 @@
     }
     .blog-link-section {
       text-align: center;
-      margin: 3em 1em;
+      margin: 3em 0;
     }
     .blog-link-box {
       display: inline-block;
       text-decoration: none;
       max-width: 600px;
-      width: 100%;
     }
     .blog-link-box img {
       display: block;
       margin: 0 auto;
-      width: 100%;
-      height: auto;
+      max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .blog-link-box:hover img {
-      transform: scale(1.02);
     }
     .blog-link-box h2 {
       color: #fbbd08;
       margin-top: 1em;
-      font-size: 1.5em;
     }
     .blog-link-box p {
       color: #333;
-      font-size: 1em;
     }
     footer {
       text-align: center;
@@ -157,21 +147,15 @@
       .filter-bar {
         flex-direction: column;
       }
-      .blog-item h3 {
-        font-size: 1.1em;
+      .container {
+        padding: 1em;
       }
-      .btn-read {
+      .blog-link-box {
         width: 100%;
-        text-align: center;
       }
       .post-form input, .post-form textarea, .post-form button {
-        font-size: 0.95em;
-      }
-      .blog-link-box h2 {
-        font-size: 1.2em;
-      }
-      .blog-link-box p {
-        font-size: 0.95em;
+        font-size: 0.9em;
+        padding: 0.6em;
       }
     }
   </style>
@@ -196,6 +180,14 @@
       <input type="text" placeholder="キーワード検索..." id="keyword">
     </div>
 
+    <div class="blog-link-section">
+      <a href="blog.html" class="blog-link-box">
+        <img src="images/blog-banner.jpg" alt="ブログへ">
+        <h2>最新ブログを見る</h2>
+        <p>火災保険や営業、ライフスタイル情報を随時更新中！</p>
+      </a>
+    </div>
+
     <div class="blog-list" id="blog-list">
       <!-- 投稿されたブログ記事がここに追加される -->
     </div>
@@ -207,13 +199,6 @@
       <textarea id="post-content" rows="5" placeholder="本文"></textarea>
       <button onclick="submitPost()">投稿する</button>
     </div>
-    <div class="main-link">
-    <a href="index.html" class="main-link">
-      <img src="images/cream--comfort-better-future.jpg" alt="HPへ">
-      <h2>HPへ</h2>
-<!--       <p>火災保険や営業、ライフスタイル情報を随時更新中！</p> -->
-    </a>
-  </div>
   </div>
 
   <footer>
