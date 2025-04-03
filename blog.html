@@ -1,187 +1,191 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CREAMブログ| CREAM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CREAM ブログ投稿＆一覧</title>
+  <meta name="description" content="火災保険や営業代行の現場からリアルな情報を発信中。">
+  <meta name="keywords" content="ブログ, 火災保険, 営業, 投稿">
+  <meta property="og:title" content="CREAM ブログ">
+  <meta property="og:description" content="最新記事やお役立ち情報を発信中。">
+  <meta property="og:image" content="images/ogp-blog.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/blog">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 2em;
-      background-color: #f4f4f4;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
     }
-    h1 {
-      color: #fbbd08;
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
       text-align: center;
     }
-    form, .blog-preview, .blog-list {
-      max-width: 600px;
-      margin: 2em auto;
-      background: white;
-      padding: 1em;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
-    input, textarea {
+    form {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    form input, form textarea {
       width: 100%;
-      padding: 0.8em;
-      margin-bottom: 1em;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      font-size: 1rem;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    button {
-      padding: 0.8em 1.2em;
+    form button {
       background-color: #fbbd08;
+      color: #000;
       border: none;
-      color: black;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
       border-radius: 4px;
       cursor: pointer;
     }
-    .blog-preview img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-bottom: 1em;
-    }
     .blog-item {
-      margin-bottom: 1.5em;
-      padding: 1em;
       background: #fff;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
     .blog-item h3 {
-      margin: 0.5em 0;
+      margin-top: 0;
+      color: #111;
     }
-    .blog-item button {
-      margin-right: 0.5em;
+    .blog-item img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 6px;
     }
-    #searchInput {
-      width: 100%;
-      padding: 0.5em;
-      margin-bottom: 1em;
+    .blog-item small {
+      display: block;
+      margin-top: 0.5rem;
+      color: #888;
+    }
+    .admin-buttons button {
+      margin-right: 8px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+    }
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>ブログ投稿フォーム</h1>
-  <form id="blogForm">
-    <input type="text" id="title" placeholder="タイトル" required>
-    <textarea id="content" rows="5" placeholder="本文" required></textarea>
-    <input type="file" id="imageInput" accept="image/*">
-    <input type="password" id="password" placeholder="投稿パスワード" required>
-    <button type="submit">投稿</button>
-  </form>
+  <header>
+    <h1>CREAM ブログ</h1>
+  </header>
 
-  <div class="blog-preview" id="preview" style="display:none">
-    <h2>プレビュー</h2>
-    <h3 id="previewTitle"></h3>
-    <img id="previewImage">
-    <p id="previewContent"></p>
-  </div>
+  <div class="container">
+    <!-- 投稿フォーム -->
+    <form id="blogForm">
+      <input type="text" name="title" placeholder="タイトル" required>
+      <textarea name="content" rows="5" placeholder="本文" required></textarea>
+      <input type="text" name="category" placeholder="カテゴリ">
+      <input type="text" name="tags" placeholder="タグ（カンマ区切り）">
+      <input type="text" name="image" placeholder="画像URL">
+      <input type="n19900521" name="password" placeholder="パスワードを入力してください" required>
 
-  <div class="blog-list">
-    <h2>投稿一覧</h2>
-    <input type="text" id="searchInput" placeholder="検索キーワード">
-    <div id="posts"></div>
+      <button type="submit">投稿する</button>
+    </form>
+
+    <!-- 投稿一覧 -->
+    <div id="blog-list">読み込み中...</div>
   </div>
 
   <script>
-    const form = document.getElementById('blogForm');
-    const preview = document.getElementById('preview');
-    const postsEl = document.getElementById('posts');
-    const storageKey = 'blogPosts';
-    let posts = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const endpoint = "https://script.google.com/macros/s/AKfycbz6E_g4rqsuMojKsRdWB8ub0KgVJ1FhnGYxx6UBkAUqfUkiF2L7Ajdgc-FMZnEsIGxD/exec";
 
-    function updatePreview() {
-      document.getElementById('previewTitle').innerText = document.getElementById('title').value;
-      document.getElementById('previewContent').innerText = document.getElementById('content').value;
-      const file = document.getElementById('imageInput').files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = e => {
-          document.getElementById('previewImage').src = e.target.result;
-          preview.style.display = 'block';
-        }
-        reader.readAsDataURL(file);
-      } else {
-        preview.style.display = 'none';
-      }
-    }
-
-    form.addEventListener('input', updatePreview);
-
-    form.addEventListener('submit', e => {
+    document.getElementById("blogForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      if (document.getElementById('password').value !== 'n19900521') {
-        alert('パスワードが間違っています');
-        return;
-      }
-      const title = document.getElementById('title').value;
-      const content = document.getElementById('content').value;
-      const file = document.getElementById('imageInput').files[0];
-      const reader = new FileReader();
-      reader.onload = e => {
-        const image = e.target.result;
-        const newPost = { title, content, image, time: new Date().toLocaleString() };
-        posts.unshift(newPost);
-        localStorage.setItem(storageKey, JSON.stringify(posts));
-        renderPosts();
+      const form = e.target;
+      const formData = new URLSearchParams(new FormData(form)); // ← 重要：parameter形式
+
+      fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: formData
+      })
+      .then(res => res.text())
+      .then(msg => {
+        alert(msg);
         form.reset();
-        preview.style.display = 'none';
-      };
-      if (file) reader.readAsDataURL(file);
-      else {
-        const newPost = { title, content, image: '', time: new Date().toLocaleString() };
-        posts.unshift(newPost);
-        localStorage.setItem(storageKey, JSON.stringify(posts));
-        renderPosts();
-        form.reset();
-        preview.style.display = 'none';
-      }
+        loadPosts();
+      })
+      .catch(err => alert("送信エラー：" + err));
     });
 
-    function renderPosts() {
-      postsEl.innerHTML = '';
-      const keyword = document.getElementById('searchInput').value.toLowerCase();
-      posts.filter(p => p.title.toLowerCase().includes(keyword) || p.content.toLowerCase().includes(keyword))
-        .forEach((post, index) => {
-          const div = document.createElement('div');
-          div.className = 'blog-item';
-          div.innerHTML = `
-            <small>${post.time}</small>
-            <h3>${post.title}</h3>
-            ${post.image ? `<img src="${post.image}" style="max-width:100%; border-radius:6px;">` : ''}
-            <p>${post.content}</p>
-            <button onclick="editPost(${index})">編集</button>
-            <button onclick="deletePost(${index})">削除</button>
-          `;
-          postsEl.appendChild(div);
+    function loadPosts() {
+      fetch(endpoint)
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById("blog-list");
+          container.innerHTML = "";
+          data.forEach(post => {
+            const div = document.createElement("div");
+            div.className = "blog-item";
+            div.innerHTML = `
+              <h3>${post.title}</h3>
+              <p><strong>カテゴリ:</strong> ${post.category || '未分類'} | <strong>タグ:</strong> ${post.tags || 'なし'}</p>
+              ${post.image ? `<img src="${post.image}" alt="投稿画像">` : ""}
+              <p>${post.content}</p>
+              <small>${post.timestamp}</small>
+              <div class="admin-buttons">
+                <button onclick="editPost(${post.id})">編集</button>
+                <button onclick="deletePost(${post.id})">削除</button>
+              </div>
+            `;
+            container.appendChild(div);
+          });
         });
     }
 
-    function deletePost(index) {
-      if (!confirm('削除しますか？')) return;
-      posts.splice(index, 1);
-      localStorage.setItem(storageKey, JSON.stringify(posts));
-      renderPosts();
+    function deletePost(id) {
+      const password = prompt("削除にはパスワードが必要です");
+      fetch(`${endpoint}?id=${id}&password=${password}`, { method: "DELETE" })
+        .then(res => res.text())
+        .then(msg => {
+          alert(msg);
+          loadPosts();
+        });
     }
 
-    function editPost(index) {
-      const post = posts[index];
-      const newTitle = prompt('新しいタイトル', post.title);
-      const newContent = prompt('新しい内容', post.content);
-      if (newTitle && newContent) {
-        post.title = newTitle;
-        post.content = newContent;
-        localStorage.setItem(storageKey, JSON.stringify(posts));
-        renderPosts();
-      }
+    function editPost(id) {
+      const title = prompt("新しいタイトルを入力してください");
+      const content = prompt("新しい本文を入力してください");
+      const password = prompt("編集にはパスワードが必要です");
+      fetch(`${endpoint}?id=${id}&title=${encodeURIComponent(title)}&content=${encodeURIComponent(content)}&password=${password}`, {
+        method: "PUT"
+      })
+      .then(res => res.text())
+      .then(msg => {
+        alert(msg);
+        loadPosts();
+      });
     }
 
-    document.getElementById('searchInput').addEventListener('input', renderPosts);
-
-    window.onload = renderPosts;
+    loadPosts();
   </script>
 </body>
 </html>
