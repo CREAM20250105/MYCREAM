@@ -42,10 +42,7 @@
       max-width: 900px;
       margin: auto;
     }
-    form input, form textarea {
-  color: #000; /* ←ここで文字色を黒に設定 */
-  background-color: #fff; /* 念のため背景色も白に */
-}
+    
 
     form {
       background: #fff;
@@ -54,14 +51,18 @@
       margin-bottom: 2rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
-    form input, form textarea {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+   
+  form input, form textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000; /* ←これを追加 */
+  }
+
     form button {
       background-color: #fbbd08;
       color: #000;
