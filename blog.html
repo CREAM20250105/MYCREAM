@@ -12,17 +12,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yourdomain.com/blog">
   <meta name="twitter:card" content="summary_large_image">
-  <header>
-    <!-- <h1>CREAM ブログ</h1> -->
-    <header>
-        <h1>::::::::</h1>
-        <nav style="margin-top: 0.5rem;">
-          <a href="index.html" style="color: #fbbd08; margin-right: 1rem; text-decoration: none;">トップページへ</a>
-          <a href="mailto:cream.250.cream@gmail.com" style="color: #fbbd08; margin-right: 1rem; text-decoration: none;">Gmailでお問い合わせ</a>
-          <a href="https://www.instagram.com/cream250cream/" target="_blank" style="color: #fbbd08; text-decoration: none;">Instagram DM</a>
-        </nav>
-      </header>      
-  
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -37,7 +26,6 @@
       padding: 1rem;
       text-align: center;
     }
-    
     .container {
       padding: 2rem;
       max-width: 900px;
@@ -50,22 +38,16 @@
       margin-bottom: 2rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
-   
-  form input, form textarea {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #000; /* ←これを追加 */
-  }
-  .blog-item p {
-    color: #333
-  }
-
-
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #000;
+    }
     form button {
       background-color: #fbbd08;
       color: #000;
@@ -75,10 +57,6 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    nav a:hover {
-  text-decoration: underline;
-}
-
     .blog-item {
       background: #fff;
       border: 1px solid #ddd;
@@ -107,6 +85,14 @@
       padding: 0.4rem 0.8rem;
       font-size: 0.85rem;
     }
+    nav a {
+      color: #fbbd08;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     @media screen and (max-width: 600px) {
       .container {
         padding: 1rem;
@@ -117,38 +103,37 @@
 <body>
   <header>
     <h1>CREAM ブログ</h1>
+    <nav>
+      <a href="index.html">トップページへ</a>
+      <a href="mailto:cream.250.cream@gmail.com">Gmailでお問い合わせ</a>
+      <a href="https://www.instagram.com/cream250cream/" target="_blank">Instagram DM</a>
+    </nav>
   </header>
-
   <div class="container">
-    <!-- 投稿フォーム -->
     <form id="blogForm">
-        <input type="text" name="title" placeholder="タイトル" required>
-        <textarea name="content" rows="5" placeholder="本文" required></textarea>
-        <input type="text" name="category" placeholder="カテゴリ">
-        <input type="text" name="tags" placeholder="タグ（カンマ区切り）">
-        <input type="text" name="image" placeholder="画像URL">
-        <input type="password" name="password" placeholder="パスワードを入力してください" required>
-        <button type="submit">投稿する</button>
-      </form>
-      
+      <input type="text" name="title" placeholder="タイトル" required>
+      <textarea name="content" rows="5" placeholder="本文" required></textarea>
+      <input type="text" name="category" placeholder="カテゴリ">
+      <input type="text" name="tags" placeholder="タグ（カンマ区切り）">
+      <input type="text" name="image" placeholder="画像URL">
+      <input type="password" name="password" placeholder="パスワードを入力してください" required>
+      <button type="submit">投稿する</button>
+    </form>
 
-    <!-- 投稿一覧 -->
     <div id="blog-list">読み込み中...</div>
   </div>
 
   <script>
-    const endpoint = "https://script.google.com/macros/s/AKfycbxVmTTLvoeJx2vKWb5gDSOlP3SHd1ioyaZtC2hB7197JfGhINXR8DwIh4TpHefNP6-q/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbyFo91dS73mKyXFIfx_NnDRvJJkOfPX6QwmsHf66qIxmJ_-0kiYBP5-CzR-e0ofRSgb/exec"; // ← ご自身のデプロイURLをここに挿入してください
 
     document.getElementById("blogForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const form = e.target;
-      const formData = new URLSearchParams(new FormData(form)); // ← 重要：parameter形式
+      const formData = new URLSearchParams(new FormData(form));
 
       fetch(endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData
       })
       .then(res => res.text())
