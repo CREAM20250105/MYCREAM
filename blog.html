@@ -42,8 +42,10 @@
       max-width: 900px;
       margin: auto;
     }
+    .blog-item p {
+    color: #333 !import
+    }
     
-
     form {
       background: #fff;
       padding: 1.5rem;
@@ -118,13 +120,16 @@
 
   <div class="container">
     <!-- 投稿フォーム -->
-    <form id="blogForm">
-      <input type="text" name="title" placeholder="タイトル" required>
-      <textarea name="content" rows="5" placeholder="本文" required></textarea>
-      <input type="text" name="category" placeholder="カテゴリ">
-      <input type="text" name="tags" placeholder="タグ（カンマ区切り）">
-      <input type="text" name="image" placeholder="画像URL">
-      <input type="n19900521" name="password" placeholder="パスワードを入力してください" required>
+   <form id="blogForm">
+  <input type="text" name="title" placeholder="タイトル" required>
+  <textarea name="content" rows="5" placeholder="本文" required></textarea>
+  <input type="text" name="category" placeholder="カテゴリ">
+  <input type="text" name="tags" placeholder="タグ（カンマ区切り）">
+  <input type="text" name="image" placeholder="画像URL">
+  <input type="password" name="password" placeholder="パスワードを入力してください" required>
+  <button type="submit">投稿する</button>
+</form>
+
 
       <button type="submit">投稿する</button>
     </form>
