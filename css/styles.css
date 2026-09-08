@@ -734,3 +734,47 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+/* 住宅点検・修理相談：画像内の文字に依存しない見出し */
+.home-care-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: clamp(28px, 6vw, 72px) 24px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    background: #fff6c9;
+    color: #222;
+    text-align: left;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+.home-care-banner strong {
+    font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+    line-height: 1.5;
+}
+.home-care-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+}
+.home-care-banner--compact { padding: 32px 24px; }
+.home-care-banner--compact strong { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+.home-care-info {
+    border-left: 4px solid #d6b300;
+    padding: 20px;
+    margin: 24px 0;
+    text-align: left;
+    line-height: 1.9;
+}
+.home-care-info h3 { margin-bottom: 12px; }
+.home-care-info p + p { margin-top: 12px; }
+.home-care-contact { margin: 28px 0; }
+.home-care-contact .cta-button {
+    display: inline-block;
+    color: #222;
+    font-weight: bold;
+    line-height: 1.6;
+}
+#fire-insurance { scroll-margin-top: 100px; }
