@@ -17,3 +17,7 @@
 /* 読みやすさとスマートフォンの安全領域 */
 .anchor-alias{scroll-margin-top:100px}.work-card p{font-size:14px}.support-list p{font-size:13px}.flow-grid p{font-size:13px}.business-grid p{font-size:14px}.faq-list details>div{font-size:14px}#construction .work-tag{font-size:11px}
 @media(max-width:768px){body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}.work-card p,.support-list p,.flow-grid p,.business-grid p,.faq-list details>div{font-size:13px}#construction .work-tag{font-size:10px}}
+
+/* 元のCreamロゴをヘッダー・フッター・会社概要に使用 */
+.brand-image{width:58px;height:54px;object-fit:contain;background:#fff;border-radius:5px;flex-shrink:0}.company-logo{margin-bottom:34px}.company-logo img{width:220px;height:auto;border-radius:12px;background:#fff}.privacy-reason{display:block;margin-top:8px;color:var(--muted);font-size:13px;line-height:1.9}.contact-grid{grid-template-columns:1.15fr 1fr}.contact-grid>a:last-child{grid-column:auto}
+@media(max-width:768px){.brand-image{width:45px;height:42px}.company-logo img{width:190px}.privacy-reason{font-size:12px}.contact-grid{grid-template-columns:1fr}}
