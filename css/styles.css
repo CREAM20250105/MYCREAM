@@ -778,3 +778,32 @@ footer {
     line-height: 1.6;
 }
 #fire-insurance { scroll-margin-top: 100px; }
+
+/* 火災保険申請サポート：画像なしカードの余白調整 */
+.service.fire-insurance-service {
+    justify-content: center;
+    padding: 32px 24px;
+    gap: 16px;
+}
+.fire-insurance-service h3 {
+    margin: 0;
+}
+.fire-insurance-service p {
+    flex-grow: 0;
+    max-width: 600px;
+    margin: 0;
+    line-height: 1.8;
+}
+.fire-insurance-service .read-more {
+    margin-top: 0;
+}
+#fire-insurance .service-description {
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.9;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+#fire-insurance .insurance-note {
+    margin-top: 20px;
+}
