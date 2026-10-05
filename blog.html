@@ -8,121 +8,35 @@
   <meta name="keywords" content="ブログ, 火災保険, 営業, 投稿">
   <meta property="og:title" content="CREAM ブログ">
   <meta property="og:description" content="最新記事やお役立ち情報を発信中。">
-  <meta property="og:image" content="images/ogp-blog.jpg">
+  <meta property="og:image" content="https://cream20250105.github.io/MYCREAM/images/cream--comfort-better-future.jpg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/blog">
+  <meta property="og:url" content="https://cream20250105.github.io/MYCREAM/blog.html">
   <meta name="twitter:card" content="summary_large_image">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #16a68e;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    .container {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    form {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    form input, form textarea {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #fff;
-      color: #000;
-    }
-    form button {
-      background-color: #fbbd08;
-      color: #000;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .blog-item {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    .blog-item h3 {
-      margin-top: 0;
-      color: #111;
-    }
-    .blog-item img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 1rem;
-      border-radius: 6px;
-    }
-    .blog-item small {
-      display: block;
-      margin-top: 0.5rem;
-      color: #888;
-    }
-    .admin-buttons button {
-      margin-right: 8px;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.85rem;
-    }
-    nav a {
-      color: #fbbd08;
-      margin-right: 1rem;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    @media screen and (max-width: 600px) {
-      .container {
-        padding: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css?v=20261005-2">
+  <script src="js/scripts.js?v=20261005-2" defer></script>
 </head>
-<body>
-  <header>
-    <h1>CREAM ブログ</h1>
-    <nav>
-      <a href="index.html">トップページへ</a>
-      <a href="mailto:cream.250.cream@gmail.com">Gmailでお問い合わせ</a>
-      <a href="https://www.instagram.com/cream250cream/" target="_blank">Instagram DM</a>
-    </nav>
-  </header>
-  <div class="container">
+<body class="blog-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html" aria-label="CREAM トップへ"><span class="brand-mark">C<span></span></span><span><strong>CREAM</strong><small>クリーム・工務店</small></span></a><nav id="site-nav" class="site-nav" aria-label="メインメニュー"><a href="index.html#construction">工事内容</a><a href="index.html#fire-insurance">申請サポート</a><a href="index.html#flow">ご相談の流れ</a><a href="index.html#faq">よくあるご質問</a><a href="gaiyou.htm">会社概要</a></nav><div class="header-actions"><button class="theme-button" type="button" aria-label="ダークモードに切り替える" aria-pressed="false"><span aria-hidden="true">◐</span></button><a class="button button-small header-contact" href="index.html#contact">お問い合わせ <span aria-hidden="true">↗</span></a><button class="menu-button" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button></div></div></header>
+<main id="main"><section class="page-hero"><div class="shell"><nav class="breadcrumbs" aria-label="現在の位置"><a href="index.html">ホーム</a><span aria-hidden="true">/</span><span aria-current="page">ブログ</span></nav><p class="eyebrow">CREAM BLOG</p><h1>日々の情報と、お知らせ。</h1><p class="page-intro">火災保険や営業、ライフスタイルなどの情報を発信します。</p></div></section>
+  <div class="shell blog-content">
+    <details class="post-panel"><summary>管理者用：記事を投稿する</summary>
     <form id="blogForm">
-      <input type="text" name="title" placeholder="タイトル" required>
-      <textarea name="content" rows="5" placeholder="本文" required></textarea>
-      <input type="text" name="category" placeholder="カテゴリ">
-      <input type="text" name="tags" placeholder="タグ（カンマ区切り）">
-      <input type="text" name="image" placeholder="画像URL">
-      <input type="password" name="password" placeholder="パスワードを入力してください" required>
+      <input type="text" name="title" aria-label="タイトル" placeholder="タイトル" required>
+      <textarea name="content" aria-label="本文" rows="5" placeholder="本文" required></textarea>
+      <input type="text" name="category" aria-label="カテゴリ" placeholder="カテゴリ">
+      <input type="text" name="tags" aria-label="タグ" placeholder="タグ（カンマ区切り）">
+      <input type="text" name="image" aria-label="画像URL" placeholder="画像URL">
+      <input type="password" name="password" aria-label="投稿パスワード" placeholder="パスワードを入力してください" required>
       <button type="submit">投稿する</button>
     </form>
+    </details>
 
     <div id="blog-list">読み込み中...</div>
   </div>
 
+  </main>
+<footer class="site-footer"><div class="shell footer-inner"><a class="brand" href="index.html"><span><strong>CREAM</strong><small>クリーム・工務店</small></span></a><nav aria-label="フッターメニュー"><a href="index.html#construction">工事内容</a><a href="index.html#fire-insurance">申請サポート</a><a href="gaiyou.htm">会社概要</a><a href="blog.html">ブログ</a></nav><p>© 2026 CREAM</p></div></footer><div class="mobile-contact"><a href="tel:08076098116">電話で相談</a><a href="index.html#contact">お問い合わせ <span aria-hidden="true">↗</span></a></div>
   <script>
     const endpoint = "https://script.google.com/macros/s/AKfycbxK-4X3PY23OO4eKS3BBJSTegYP3cCK79MNb7k94AFQBJ6sQn-kPTIsn7gkO5BMDnBN/exec"; // ← ご自身のデプロイURLをここに挿入してください
 
@@ -151,6 +65,8 @@
         .then(data => {
           const container = document.getElementById("blog-list");
           container.innerHTML = "";
+          if (!Array.isArray(data)) throw new Error("記事データを確認できませんでした");
+          if (data.length === 0) container.textContent = "記事はまだありません。";
           data.forEach(post => {
             const div = document.createElement("div");
             div.className = "blog-item";
@@ -167,7 +83,8 @@
             `;
             container.appendChild(div);
           });
-        });
+        })
+        .catch(() => { document.getElementById("blog-list").textContent = "記事を読み込めませんでした。時間をおいて再読み込みしてください。"; });
     }
 
     function deletePost(id) {
@@ -198,3 +115,4 @@
   </script>
 </body>
 </html>
+
