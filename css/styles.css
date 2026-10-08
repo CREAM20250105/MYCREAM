@@ -24,3 +24,6 @@
 
 /* 補助サービスへの控えめなリンク */
 .site-footer .footer-support-link{color:var(--muted);font-weight:400}.company-support-link{text-decoration:underline;text-underline-offset:3px}
+
+/* 対応地域と、修繕費用の控えめな案内 */
+.service-area{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:15px;font-size:12px;font-weight:700;color:var(--muted)}.service-area>span{border:1px solid var(--line);padding:3px 8px;border-radius:5px;font-size:10px}.repair-guidance{display:flex;justify-content:space-between;align-items:center;gap:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;margin-bottom:64px}.repair-guidance .eyebrow{margin-bottom:10px}.repair-guidance h2{font-size:19px;margin-bottom:10px}.repair-guidance p:not(.eyebrow){font-size:13px;color:var(--muted)}.repair-guidance .text-link{flex-shrink:0}@media(max-width:768px){.repair-guidance{flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:48px}.repair-guidance h2{font-size:18px}.service-area{font-size:11px}}
