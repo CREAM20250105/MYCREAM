@@ -21,3 +21,6 @@
 /* 元のCreamロゴをヘッダー・フッター・会社概要に使用 */
 .brand-image{width:58px;height:54px;object-fit:contain;background:#fff;border-radius:5px;flex-shrink:0}.company-logo{margin-bottom:34px}.company-logo img{width:220px;height:auto;border-radius:12px;background:#fff}.privacy-reason{display:block;margin-top:8px;color:var(--muted);font-size:13px;line-height:1.9}.contact-grid{grid-template-columns:1.15fr 1fr}.contact-grid>a:last-child{grid-column:auto}
 @media(max-width:768px){.brand-image{width:45px;height:42px}.company-logo img{width:190px}.privacy-reason{font-size:12px}.contact-grid{grid-template-columns:1fr}}
+
+/* 補助サービスへの控えめなリンク */
+.site-footer .footer-support-link{color:var(--muted);font-weight:400}.company-support-link{text-decoration:underline;text-underline-offset:3px}
